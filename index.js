@@ -37,6 +37,32 @@ app.post('/libros',(req, res)=>{
     }
 });
 
+app.put('/libros',(req, res)=>{
+    const { id, titulo, autor, anio, disponible } = req.body;
+
+    if (!id) {
+        return res.status(400).json({ mensaje: "El ID es obligatorio" });
+    }
+
+    let books = reedBook(); 
+    const index = books.findIndex(book => book.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ mensaje: "Libro no encontrado" });
+    }
+
+    books[index] = { 
+        ...books[index],
+        ...(titulo && { titulo }), 
+        ...(autor && { autor }), 
+        ...(anio && { anio }), 
+        ...(disponible && { disponible }), 
+    };
+
+    saveBook(books);
+
+    res.json({ mensaje: "Libro actualizado", libro: books[index] });
+});
 
 
 
