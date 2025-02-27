@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "titulo": "LA divina comedia",
+    "autor": "Dante Aliguieri",
+    "anio": 1785,
+    "Disponible": true
+  },
+  {
+    "id": 2,
+    "titulo": "LA divina comedia",
+    "autor": "Dante Aliguieri",
+    "anio": 1785,
+    "Disponible": false
+  }
+]
